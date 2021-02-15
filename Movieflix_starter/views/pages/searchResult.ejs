@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Movieflix</title>
+</head>
+
+<body>
+  <!-- Your Code Goes Here -->
+
+  <!-- check the name in the url exist in the object keys -->
+  <% if (Object.keys(movieDesobj).indexOf(themovieName)>=0) { %>
+    <h1> <%= themovieName %></h1>
+    <p><%= movieDesobj[themovieName] %></p>
+    <a href="http://localhost:3000/myForm">MyForm page</a>
+  <%} else {%>
+    <h1> Movie could not be found</h1>
+    <a href="http://localhost:3000/myForm">MyForm page</a>
+  <%}%>
+  
+
+</body>
+
+</html>
