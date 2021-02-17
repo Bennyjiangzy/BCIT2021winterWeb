@@ -14,7 +14,7 @@ app.set("view engine", "ejs");
 // global variable 
 let allMovies=[]
 
-app.get("/", (req, res) => res.render("pages/index"));
+app.get("/", (req, res) => res.render("pages/index",{allMovies:allMovies}));
 
 app.get("/myForm", (req, res) => res.render("pages/myForm"));
 
