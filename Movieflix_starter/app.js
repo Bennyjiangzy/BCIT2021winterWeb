@@ -14,6 +14,7 @@ app.set("view engine", "ejs");
 // global variable 
 let allMovies=[]
 
+//reset the home page for the variblae otherwise will send error.
 app.get("/", (req, res) => res.render("pages/index",{allMovies:allMovies}));
 
 app.get("/myForm", (req, res) => res.render("pages/myForm"));
