@@ -14,7 +14,6 @@ app.set("view engine", "ejs");
 // global variable 
 let allMovies=[]
 
-//reset the home page for the variblae otherwise will send error.
 app.get("/", (req, res) => res.render("pages/index",{allMovies:allMovies}));
 
 app.get("/myForm", (req, res) => res.render("pages/myForm"));
@@ -66,7 +65,9 @@ app.get("/search/:movieName", (req, res) => {
     // loop the elements in the textfile 
     for(let i = 0; i < textfile.length;  i++ ){
       // put the {name:'desciption',ect...} in the movieDesobj
-      movieDesobj[textfile[i].split(':')[0]]=textfile[i].split(':')[1]
+      let SpliteMoveName = textfile[i].split(':')[0]
+      let SplitMovede=textfile[i].split(':')[1]
+      movieDesobj[SpliteMoveName.toLowerCase()]=SplitMovede
 
     };
     // test the value is correct
@@ -74,7 +75,7 @@ app.get("/search/:movieName", (req, res) => {
     // send the movieDesobj and themovieName to the searchResult.ejs and send the searchResult.ejs to the browser
     res.render('pages/searchResult',{
       movieDesobj:movieDesobj,
-      themovieName:themovieName
+      themovieName:themovieName.toLowerCase()
     });
   });
 });
